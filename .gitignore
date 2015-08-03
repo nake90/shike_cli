@@ -26,3 +26,4 @@
 *.exe
 *.out
 *.app
+bin/shike_cli*
