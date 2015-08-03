@@ -51,15 +51,15 @@ protected:
 private:
 	void update_rect(void); // Updates the selection rectangle
 	
-    ofPoint m_anchor; // Anchor position (defined by the user)
-    ofPoint m_pos; // Upper left corner (depends of m_anchor and m_anchor_mode)
+	ofPoint m_anchor; // Anchor position (defined by the user)
+	ofPoint m_pos; // Upper left corner (depends of m_anchor and m_anchor_mode)
 	e_anchor_mode m_anchor_mode;
 	
-    string m_text; // Label
-    ofTrueTypeFont *m_font = NULL; // Font
-    ofRectangle m_rect; // Used for mouse checks
+	string m_text; // Label
+	ofTrueTypeFont *m_font = NULL; // Font
+	ofRectangle m_rect; // Used for mouse checks
     
-	bool m_MouseOver; // True if the mouse is inside the button
+	bool m_MouseOver = false; // True if the mouse is inside the button
 	ofColor m_color_on; // Color of the text if the mouse is over the button
 	ofColor m_color_off; // Default color of the text
 	

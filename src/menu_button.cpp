@@ -9,6 +9,7 @@ menu_button::menu_button(string text, ofPoint pos, ofTrueTypeFont* font)
 	// Defaults
 	m_color_on = ofColor(0, 0xFF, 0);
 	m_color_off = ofColor(0, 0x80, 0);
+	m_id = 0;
 }
 
 menu_button::~menu_button()
@@ -70,3 +71,4 @@ void menu_button::draw()
 	
 	ofPopStyle();
 }
+

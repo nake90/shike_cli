@@ -1,71 +1,33 @@
 #include "ofApp.h"
 
-enum e_button_id
-{
-	NEW_SCAN,
-	UPDATE_SCAN,
-	REVIEW_SCAN,
-	EXIT
-};
 
 //--------------------------------------------------------------
 void ofApp::setup()
 {
-	menu_button button;
-	ofPoint pos;
-	
 	ofEnableAlphaBlending();
 	ofSetLogLevel(OF_LOG_VERBOSE);
 	ofSetVerticalSync(true);
 	ofSetFrameRate(60);
 	
-	font.loadFont("fonts/Inconsolata.otf", 14, true,false,false,0.3,90);
+	font.loadFont("fonts/Inconsolata.otf", 18, true,false,false,0.3,90);
 	titleFont.loadFont("fonts/Inconsolata.otf", 28, true,false,false,0.3,90);
 	
+	m_main_menu.set_font(&font);
 	
+	m_model.load("cache/large.dat");
+
+	m_button_back.set_pos(ofPoint(20, 90));
+	m_button_back.set_font(&font);
+	m_button_back.set_text("Back");
+	m_button_back.set_colors(ofColor(0xFF, 0xFF, 0xFF), ofColor(0x40, 0x40, 0x40));
+	m_button_back.update();
 	
-	pos.x = ofGetWidth()/2;
-	pos.y = 80;
-	button.set_text("New scan");
-	button.set_id(NEW_SCAN);
-	button.set_pos(pos);
-	button.set_font(&font);
-	button.set_anchor_mode(CENTER);
-	button.update();
-	main_menu.push_back(button);
-	
-	pos.y += 40;
-	button.set_text("Update scan");
-	button.set_id(UPDATE_SCAN);
-	button.set_pos(pos);
-	button.set_font(&font);
-	button.set_anchor_mode(CENTER);
-	button.update();
-	main_menu.push_back(button);
-	
-	pos.y += 40;
-	button.set_text("Review scan");
-	button.set_id(REVIEW_SCAN);
-	button.set_pos(pos);
-	button.set_font(&font);
-	button.set_anchor_mode(CENTER);
-	button.update();
-	main_menu.push_back(button);
-	
-	pos.y += 60;
-	button.set_text("Exit");
-	button.set_id(EXIT);
-	button.set_pos(pos);
-	button.set_font(&font);
-	button.set_anchor_mode(CENTER);
-	button.update();
-	main_menu.push_back(button);
 }
 
 //--------------------------------------------------------------
 void ofApp::update()
 {
-	
+
 }
 
 //--------------------------------------------------------------
@@ -73,15 +35,25 @@ void ofApp::draw()
 {
 	ofSetColor(0x20, 0x20, 0x20);
 	titleFont.drawString("shike client", 20, 60);
-	
-	for(unsigned int i = 0; i < main_menu.size(); i++)
-		main_menu[i].draw();
+
+	if(m_current_mode == MAIN_MENU)
+		m_main_menu.draw();
+	else
+		m_button_back.draw();
+
+	if(m_current_mode == VIEW_MODEL)
+	{
+		m_cam.begin();
+		ofDrawAxis(100.0f);
+		m_model.draw();
+		m_cam.end();
+	}
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key)
 {
-	
+
 }
 
 //--------------------------------------------------------------
@@ -92,9 +64,11 @@ void ofApp::keyReleased(int key)
 
 //--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y )
-{
-	for(unsigned int i = 0; i < main_menu.size(); i++)
-		main_menu[i].update_mouse(ofPoint(x,y));
+{	
+	if(m_current_mode == MAIN_MENU)
+		m_main_menu.mouse_move(ofPoint(x,y));
+	else
+		m_button_back.update_mouse(ofPoint(x,y));
 }
 
 //--------------------------------------------------------------
@@ -114,16 +88,35 @@ void ofApp::mouseReleased(int x, int y, int button)
 {
 	if(button == 0)
 	{
-		for(unsigned int i = 0; i < main_menu.size(); i++)
+		if(m_current_mode == MAIN_MENU)
 		{
-			if(main_menu[i].check_mouse(ofPoint(x,y)) == true)
+			// Check if a main menu button was hit
+			switch(m_main_menu.mouse_click(ofPoint(x,y)))
 			{
-				printf("Click %d!\n", main_menu[i].get_id());
-				
-				if(main_menu[i].get_id() == EXIT)
+				case NONE:
+					break;
+				case NEW_SCAN:
+					break;
+				case UPDATE_SCAN:
+					break;
+				case REVIEW_SCAN:
+					m_current_mode = VIEW_MODEL;
+					m_cam.enableMouseInput();
+					m_cam.reset();
+					break;
+				case EXIT:
 					ofExit(0);
-				
-				break; // Only one button can be clicked at once!
+					break;
+				default:
+					ofLogWarning("Unhandled button");
+			}
+		}
+		else // We are not in the main menu
+		{
+			if(m_button_back.check_mouse(ofPoint(x,y)) == true)
+			{
+				// Get back to the main menu
+				m_current_mode = MAIN_MENU;
 			}
 		}
 	}

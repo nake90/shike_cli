@@ -1,4 +1,4 @@
-obj/linux64/Debug/src/ofApp.o: src/ofApp.cpp src/ofApp.h \
+obj/linux64/Release/src/model.o: src/model.cpp src/model.h \
  ../../../libs/openFrameworks/ofMain.h \
  ../../../libs/openFrameworks/utils/ofConstants.h \
  ../../../libs/tess2/include/tesselator.h \
@@ -315,26 +315,9 @@ obj/linux64/Debug/src/ofApp.o: src/ofApp.cpp src/ofApp.h \
  ../../../libs/openFrameworks/video/ofVideoPlayer.h \
  ../../../libs/openFrameworks/video/ofGstVideoPlayer.h \
  ../../../libs/openFrameworks/3d/ofCamera.h \
- ../../../libs/openFrameworks/3d/ofEasyCam.h \
- ../../../addons/ofxGui/src/ofxGui.h \
- ../../../addons/ofxGui/src/ofxToggle.h \
- ../../../addons/ofxGui/src/ofxBaseGui.h \
- ../../../addons/ofxGui/src/ofxSlider.h \
- ../../../addons/ofxGui/src/ofxSliderGroup.h \
- ../../../addons/ofxGui/src/ofxGuiGroup.h \
- ../../../addons/ofxGui/src/ofxButton.h \
- ../../../addons/ofxGui/src/ofxPanel.h \
- ../../../addons/ofxGui/src/ofxLabel.h \
- ../../../addons/ofxNetwork/src/ofxNetwork.h \
- ../../../addons/ofxNetwork/src/ofxTCPClient.h \
- ../../../addons/ofxNetwork/src/ofxTCPManager.h \
- ../../../addons/ofxNetwork/src/ofxTCPServer.h \
- ../../../addons/ofxNetwork/src/ofxUDPManager.h \
- ../../../addons/ofxXmlSettings/src/ofxXmlSettings.h \
- ../../../addons/ofxXmlSettings/libs/tinyxml.h src/menu_button.h \
- ../../../libs/openFrameworks/graphics/ofBitmapFont.h
+ ../../../libs/openFrameworks/3d/ofEasyCam.h
 
-src/ofApp.h:
+src/model.h:
 
 ../../../libs/openFrameworks/ofMain.h:
 
@@ -1003,39 +986,3 @@ src/ofApp.h:
 ../../../libs/openFrameworks/3d/ofCamera.h:
 
 ../../../libs/openFrameworks/3d/ofEasyCam.h:
-
-../../../addons/ofxGui/src/ofxGui.h:
-
-../../../addons/ofxGui/src/ofxToggle.h:
-
-../../../addons/ofxGui/src/ofxBaseGui.h:
-
-../../../addons/ofxGui/src/ofxSlider.h:
-
-../../../addons/ofxGui/src/ofxSliderGroup.h:
-
-../../../addons/ofxGui/src/ofxGuiGroup.h:
-
-../../../addons/ofxGui/src/ofxButton.h:
-
-../../../addons/ofxGui/src/ofxPanel.h:
-
-../../../addons/ofxGui/src/ofxLabel.h:
-
-../../../addons/ofxNetwork/src/ofxNetwork.h:
-
-../../../addons/ofxNetwork/src/ofxTCPClient.h:
-
-../../../addons/ofxNetwork/src/ofxTCPManager.h:
-
-../../../addons/ofxNetwork/src/ofxTCPServer.h:
-
-../../../addons/ofxNetwork/src/ofxUDPManager.h:
-
-../../../addons/ofxXmlSettings/src/ofxXmlSettings.h:
-
-../../../addons/ofxXmlSettings/libs/tinyxml.h:
-
-src/menu_button.h:
-
-../../../libs/openFrameworks/graphics/ofBitmapFont.h:

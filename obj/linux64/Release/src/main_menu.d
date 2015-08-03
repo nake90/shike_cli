@@ -1,5 +1,5 @@
-obj/linux64/Debug/src/menu_button.o: src/menu_button.cpp \
- src/menu_button.h ../../../libs/openFrameworks/ofMain.h \
+obj/linux64/Release/src/main_menu.o: src/main_menu.cpp src/main_menu.h \
+ ../../../libs/openFrameworks/ofMain.h \
  ../../../libs/openFrameworks/utils/ofConstants.h \
  ../../../libs/tess2/include/tesselator.h \
  ../../../libs/openFrameworks/utils/ofFileUtils.h \
@@ -315,10 +315,10 @@ obj/linux64/Debug/src/menu_button.o: src/menu_button.cpp \
  ../../../libs/openFrameworks/video/ofVideoPlayer.h \
  ../../../libs/openFrameworks/video/ofGstVideoPlayer.h \
  ../../../libs/openFrameworks/3d/ofCamera.h \
- ../../../libs/openFrameworks/3d/ofEasyCam.h \
+ ../../../libs/openFrameworks/3d/ofEasyCam.h src/menu_button.h \
  ../../../libs/openFrameworks/graphics/ofBitmapFont.h
 
-src/menu_button.h:
+src/main_menu.h:
 
 ../../../libs/openFrameworks/ofMain.h:
 
@@ -987,5 +987,7 @@ src/menu_button.h:
 ../../../libs/openFrameworks/3d/ofCamera.h:
 
 ../../../libs/openFrameworks/3d/ofEasyCam.h:
+
+src/menu_button.h:
 
 ../../../libs/openFrameworks/graphics/ofBitmapFont.h:

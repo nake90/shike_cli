@@ -331,8 +331,9 @@ obj/linux64/Release/src/ofApp.o: src/ofApp.cpp src/ofApp.h \
  ../../../addons/ofxNetwork/src/ofxTCPServer.h \
  ../../../addons/ofxNetwork/src/ofxUDPManager.h \
  ../../../addons/ofxXmlSettings/src/ofxXmlSettings.h \
- ../../../addons/ofxXmlSettings/libs/tinyxml.h src/menu_button.h \
- ../../../libs/openFrameworks/graphics/ofBitmapFont.h
+ ../../../addons/ofxXmlSettings/libs/tinyxml.h src/main_menu.h \
+ src/menu_button.h ../../../libs/openFrameworks/graphics/ofBitmapFont.h \
+ src/model.h
 
 src/ofApp.h:
 
@@ -1036,6 +1037,10 @@ src/ofApp.h:
 
 ../../../addons/ofxXmlSettings/libs/tinyxml.h:
 
+src/main_menu.h:
+
 src/menu_button.h:
 
 ../../../libs/openFrameworks/graphics/ofBitmapFont.h:
+
+src/model.h:
