@@ -22,6 +22,7 @@ void ofApp::setup()
 	m_button_back.set_colors(ofColor(0xFF, 0xFF, 0xFF), ofColor(0x40, 0x40, 0x40));
 	m_button_back.update();
 	
+	m_net.request_token();
 }
 
 //--------------------------------------------------------------

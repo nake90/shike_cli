@@ -1,12 +1,10 @@
 #pragma once
 
 #include "ofMain.h"
-#include "ofxGui.h"
-#include "ofxNetwork.h"
-#include "ofxXmlSettings.h"
 #include "main_menu.h"
 #include "menu_button.h"
 #include "model.h"
+#include "net.h"
 
 enum e_prog_mode
 {
@@ -42,6 +40,7 @@ private:
 	model m_model;
 	ofEasyCam m_cam;
 
+	networking m_net;
 
 	e_prog_mode m_current_mode = MAIN_MENU;
 };
